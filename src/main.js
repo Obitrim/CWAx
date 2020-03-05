@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import router from '@/router';
 import App from '@/views/App.vue';
+import plugins from '@/plugins.js';
 
-import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.productionTip = false
+Vue.use(plugins);
 
 new Vue({
   router,
