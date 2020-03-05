@@ -3,7 +3,13 @@
 @import './text';
 @import './buttons';
 @import './form';
+@import './transitions';
 
 // views
 @import './views/app-login';
 @import './views/app-register';
+@import './views/landing-page';
+
+// components
+@import './components/sidebar-toggler';
+@import './components/app-sidebar';
