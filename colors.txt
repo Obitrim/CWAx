@@ -1,0 +1,2 @@
+reddish color #8d0101
+blackish color #222222
