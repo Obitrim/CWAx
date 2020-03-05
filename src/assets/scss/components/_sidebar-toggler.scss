@@ -1,0 +1,27 @@
+.sidebar_toggler {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    text-decoration: none;
+    color: $light;
+    border: 1px solid $primary;
+    z-index: 999 !important;
+
+    i {
+        font-size: $font-size + 4px !important;
+    }
+
+    &:active {
+        border-color: $light;
+    }
+
+    &:visited {
+        color: $light;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .sidebar_toggler {
+        display: none !important;
+    }
+}
