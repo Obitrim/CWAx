@@ -1,0 +1,21 @@
+.text_primary {
+    color: $primary;
+}
+
+.text_light {
+    color: $light;
+}
+
+.text_tertiary {
+    color: $tertiary;
+}
+
+@media only screen and (max-width: 767px){
+    h2 {
+        font-size: $font-size + 8px;
+    }
+
+    h3 {
+        font-size: $font-size + 4px;
+    }
+}
