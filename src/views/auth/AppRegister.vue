@@ -2,7 +2,7 @@
     <div class="auth_view">
         <auth-layout>
             <template #header-content>
-                <div>
+                <div >
                     <h1>Register</h1>
                 </div>
             </template>
@@ -29,54 +29,10 @@
                             >
                     </div>
                     <div class="form-group my-3">
-                        <input 
-                            type="password" 
-                            name="password"
-                            class="w-100 py-3 px-4"
-                            placeholder="Password"
-                            autocomplete
-                            >
-                        <a 
-                            href="#" 
-                            class="icon"
-                            v-if="passwordVisible"
-                            @click.prevent="togglePasswordVisibility"
-                            >
-                            <i class="fa fa-eye-slash"></i>
-                        </a>
-                        <a 
-                            href="#"
-                            class="icon" 
-                            v-else
-                            @click.prevent="togglePasswordVisibility"
-                            >
-                            <i class="fa fa-eye"></i>
-                        </a>
+                        <base-password-field />
                     </div>
                     <div class="form-group my-3">
-                        <input 
-                            type="password" 
-                            name="confirmPass"
-                            class="w-100 py-3 px-4"
-                            placeholder="Confirm password"
-                            autocomplete
-                            >
-                        <a 
-                            href="#" 
-                            class="icon"
-                            v-if="confirmPassVisible"
-                            @click.prevent="togglePasswordVisibility"
-                            >
-                            <i class="fa fa-eye-slash"></i>
-                        </a>
-                        <a 
-                            href="#"
-                            class="icon" 
-                            v-else
-                            @click.prevent="togglePasswordVisibility"
-                            >
-                            <i class="fa fa-eye"></i>
-                        </a>
+                        <base-password-field/>
                     </div>
                     <div class="form-group">
                         <button 
@@ -100,36 +56,10 @@ export default {
     components: {
         AuthLayout,
     },
-
-    data(){
-        return {
-            passwordVisible: false,
-            confirmPassVisible: false
-        }
-    },
-
     methods: {
         submit(){
-            console.log('Submitting');
+            console.log('AppRegister: Form submit');
         },
-
-        togglePasswordVisibility(evt){
-            let passwordField = evt.target;
-            console.log(passwordField);
-            let inputType = passwordField.getAttribute("type");
-            let isTypePassword = inputType === "password";
-
-            if(isTypePassword){
-                passwordField.setAttribute(
-                    "type" , 
-                    isTypePassword ? 'text': 'password'
-                );
-            }
-
-            this.passwordVisible = isTypePassword;
-            this.confirmPassVisible = isTypePassword;
-        }
-
     }
 };
 </script>

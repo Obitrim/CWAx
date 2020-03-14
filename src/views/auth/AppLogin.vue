@@ -2,9 +2,7 @@
     <div class="auth_view">
         <auth-layout btnText="Register">
             <template #header-content>
-                <div class="pt-5">
-                    <h1>Heading</h1>
-                </div>
+                 <h1 class="py-4">Heading</h1>
             </template>
             <template>
                 <form 
@@ -21,30 +19,7 @@
                             >
                     </div>
                     <div class="form-group my-4">
-                        <input 
-                            type="password" 
-                            name="password"
-                            class="w-100 py-3 px-4"
-                            placeholder="Password"
-                            autocomplete
-                            ref="passwordField"
-                            >
-                        <a 
-                            href="#" 
-                            class="icon"
-                            v-if="passwordVisible"
-                            @click.prevent="togglePasswordVisibility"
-                            >
-                            <i class="fa fa-eye-slash"></i>
-                        </a>
-                        <a 
-                            href="#"
-                            class="icon" 
-                            v-else
-                            @click.prevent="togglePasswordVisibility"
-                            >
-                            <i class="fa fa-eye"></i>
-                        </a>
+                        <base-password-field />
                     </div>
                     <div class="form-group">
                         <button 
@@ -69,28 +44,10 @@ export default {
         AuthLayout
     },
 
-    data(){
-        return {
-            passwordVisible: false
-        }
-    },
-
     methods: {
         submit(){
-            console.log('Submitting');
+           console.log('AppLogin: Form submit');
         },
-
-        togglePasswordVisibility(){
-            let passwordField = this.$refs.passwordField;
-            let inputType = passwordField.getAttribute("type");
-            let isTypePassword = inputType === "password";
-            passwordField.setAttribute(
-                "type" , 
-                isTypePassword ? 'text': 'password'
-            );
-
-            this.passwordVisible = isTypePassword;
-        }
 
     }
 };
