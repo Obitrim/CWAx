@@ -3,19 +3,43 @@
         <!-- sidebar -->
         <app-sidebar title="CWAx">
             <ul class="navbar_nav my-4">
-                <router-link to="/" tag="li" exact-active-class="active">
+                <router-link 
+                    to="/" 
+                    href="/"
+                    tag="li" 
+                    exact-active-class="active"
+                    >
                     <a>Home</a>
                 </router-link>
-                <router-link to="#" tag="li" exact-active-class="active">
+                <router-link 
+                    to="#" 
+                    href="#"
+                    tag="li" 
+                    exact-active-class="active"
+                    >
                     <a>CWA calculator</a>
                 </router-link>
-                <router-link to="#" tag="li" exact-active-class="active">
+                <router-link 
+                    to="#" 
+                    tag="li" 
+                    exact-active-class="active"
+                    >
                     <a>Score Estimator</a>
                 </router-link>
-                <router-link to="#" tag="li" exact-active-class="active">
+                <router-link 
+                    to="/login"
+                    href="/login" 
+                    tag="li" 
+                    exact-active-class="active"
+                    >
                     <a>Login</a>
                 </router-link>
-                <router-link to="#" tag="li" exact-active-class="active">
+                <router-link 
+                    to="/register" 
+                    href="/register"
+                    tag="li" 
+                    exact-active-class="active"
+                    >
                     <a>Register</a>
                 </router-link>
             </ul>

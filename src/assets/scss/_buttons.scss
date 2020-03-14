@@ -1,0 +1,32 @@
+.btn {
+    &.elevate {
+        box-shadow: 3px 3px 10px darken($primary, 15%),
+            2px 2px 10px $tertiary;
+        background-color: inherit;
+    }
+
+    &.b_round {
+        border-radius: 3rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 3px 3px 10px darken($primary, 20%),
+            -2px -2px 10px lighten($tertiary, 5%);
+    }
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    &:active {
+        box-shadow: inset 3px 3px 10px darken($primary, 15%),
+            inset -2px -2px 10px $tertiary;
+    }
+}
+
+.btn_login {
+    font-size: $font-size;
+    font-weight: 550;
+    letter-spacing: 1.2px;
+}

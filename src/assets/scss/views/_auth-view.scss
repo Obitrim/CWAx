@@ -1,0 +1,34 @@
+.auth_view {
+
+    .form-group {
+        position: relative;
+
+        input[type="email"],
+        input[type="text"],
+        input[type="password"] {
+            border: none;
+            border-radius: 3rem;
+            background: inherit;
+            box-shadow: inset 2px 2px 4px darken($primary, 15%),
+                inset -1px -1px 4px $tertiary;
+            color: $light;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .remember_me {
+            font-size: $font-size - 3px;
+        }
+
+        .icon {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: $font-size + 3px;
+            color: $light;
+        }
+    }
+}
