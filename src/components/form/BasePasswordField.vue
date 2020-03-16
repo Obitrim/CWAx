@@ -4,7 +4,7 @@
             type="password" 
             name="password"
             class="w-100 py-3 px-4"
-            placeholder="Password"
+            :placeholder="placeholder"
             ref="passwordField"
             @input="onInput"
             autocomplete
@@ -30,6 +30,13 @@
 
 <script>
 export default {
+    props: {
+        placeholder: {
+            type: String,
+            default: 'Password'
+        }
+    },
+
     data(){
         return {
             value: '',

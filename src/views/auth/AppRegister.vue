@@ -3,13 +3,12 @@
         <auth-layout>
             <template #header-content>
                 <div >
-                    <h1>Register</h1>
+                    <h1 class="py-4">Register</h1>
                 </div>
             </template>
             <template>
                 <form
-                    method="POST" 
-                    action="#"
+                    method="POST"
                     @submit.prevent="submit"
                     >
                     <div class="form-group my-3">
@@ -29,10 +28,10 @@
                             >
                     </div>
                     <div class="form-group my-3">
-                        <base-password-field />
+                        <base-password-field placeholder="New Password"/>
                     </div>
                     <div class="form-group my-3">
-                        <base-password-field/>
+                        <base-password-field placeholder="Confirm Password"/>
                     </div>
                     <div class="form-group">
                         <button 

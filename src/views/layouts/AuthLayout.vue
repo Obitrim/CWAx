@@ -6,7 +6,7 @@
             <header>
                 <a 
                     href="#" 
-                    class="text_light"
+                    class="text_light p-1"
                     @click.prevent="$router.go(-1)"
                     >
                     <i class="fa fa-angle-left"></i>

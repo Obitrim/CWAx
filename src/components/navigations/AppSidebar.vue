@@ -2,7 +2,7 @@
     <div 
         class="sidebar" 
         v-if="sidebarVisible"
-        @click.self="showSidebar(false)"
+        @click.self="openSidebar(false)"
         >
         <div class="sidebar_inner bg-white h-100">
 
@@ -12,7 +12,7 @@
                 <a 
                     href="#"
                     class="text_light p-1 icon_close"
-                    @click.prevent="showSidebar(false)"
+                    @click.prevent="openSidebar(false)"
                     >
                     <i class="fa fa-times"></i>
                 </a>
@@ -42,15 +42,15 @@ export default {
             sidebarVisible: false
         }
     },
-
+    
     methods: {
-        showSidebar( state = true ){
-            this.sidebarVisible = state;
+        openSidebar( open = true ){
+            this.sidebarVisible = open;
         }
     },
 
     created(){
-        eventBus.$on('sidebar-clicked', this.showSidebar);
+        eventBus.$on('sidebar-clicked', this.openSidebar);
     }
 };
 </script>

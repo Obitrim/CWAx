@@ -1,61 +1,25 @@
 .landing_page {
-    height: 100vh;
-    overflow-y: hidden; 
-
-    .navbar_nav {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        li {
-            position: relative;
-
-            a {
-                text-decoration: none;
-                display: block;
-                width: 100%;
-                padding: 0.5rem 2rem;
-                transition: 0.25s;
-
-                &:hover {
-                    background: rgba(black, 0.15);
-                }
-            }
-
-            &::before {
-                content: '';
-                border: 6px solid transparent;
-                position: absolute;
-                left: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-
-            &.active::before {
-                border-left: 7px solid $primary;
-            }
-        }
-    }
-
-    .landing_page_content {
-        flex: 1 !important;
-        height: inherit;
-        overflow-y: auto;
-    }
+     
     .banner {
         height: 100vh;
+        overflow: hidden;
 
         .banner_content {
             transform: translateY(-4rem);
         }
     }
-    section {
-        padding: 6rem 0 !important;
-    }
 
-    .estimate_score {
-        background-color: lighten($primary, 55%);
+    .intro_guide {
+        section {
+
+            padding: 6rem 0 !important;
+
+            &:nth-child(2) {
+                background-color: lighten($primary, 55%);
+            }
+        }
     }
+    
 }
 
 

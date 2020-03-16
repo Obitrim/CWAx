@@ -2,24 +2,24 @@
     <div class="auth_view">
         <auth-layout btnText="Register">
             <template #header-content>
-                 <h1 class="py-4">Heading</h1>
+                 <h1 class="pt-4">Login</h1>
+                 <p class="mb-5">To secure your academic results from unauthorized access, provide your valid Username and Master Password</p>
             </template>
             <template>
                 <form 
                     method="POST" 
-                    action="#"
                     @submit.prevent="submit"
                     >
                     <div class="form-group my-4">
                         <input 
-                            type="email" 
-                            name="email"
+                            type="text" 
+                            name="username"
                             class="w-100 py-3 px-4"
-                            placeholder="Email"
+                            placeholder="Username"
                             >
                     </div>
                     <div class="form-group my-4">
-                        <base-password-field />
+                        <base-password-field placeholder="Master Password"/>
                     </div>
                     <div class="form-group">
                         <button 

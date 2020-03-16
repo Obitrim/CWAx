@@ -6,8 +6,9 @@
 @import './transitions';
 
 // views
-@import './views/landing-page';
+@import './views/home-layout';
 @import './views/auth-layout';
+@import './views/landing-page';
 
 // components
 @import './components/sidebar-toggler';
