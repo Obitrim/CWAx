@@ -1,11 +1,12 @@
 import AppLogin from '@/views/auth/AppLogin.vue';
-import LandingPage from '@/views/LandingPage.vue';
+import LandingPage from '@/views/app/LandingPage.vue';
 import AppRegister from '@/views/auth/AppRegister.vue';
 
 // Master routes
-import HomeLayout from '@/views/home/Index.vue';
-import CWACalculator from '@/views/home/calculators/CWACalculator.vue';
-import ScoreEstimateCalculator from '@/views/home/calculators/ScoreEstimateCalculator.vue';
+import Dashboard from '@/views/master/Index.vue';
+import MasterLayout from '@/views/layouts/MasterLayout.vue';
+import CWACalculator from '@/views/master/calculators/CWACalculator.vue';
+import ScoreEstimateCalculator from '@/views/master/calculators/ScoreEstimateCalculator.vue';
 
 export default [
     {
@@ -15,31 +16,30 @@ export default [
     },
     {
         path: '/app',
-        name: 'master',
-        component: HomeLayout,
+        component: MasterLayout,
         meta: {
             requiresAuth: true
         },
         children: [
             {
                 path: '',
-                name: 'landing',
-                component: LandingPage
+                name: 'dashboard',
+                component: Dashboard
             },
             {
                 path: 'cwa-calculator',
-                name: 'cwa',
+                name: 'master-calculator',
                 component: CWACalculator
             },
             {
                 path: 'score-estimate',
-                name: 'estimator',
+                name: 'master-estimator',
                 component: ScoreEstimateCalculator
             }
         ]
     },
     {
-        path: '/calculator',
+        path: '/cwa-calculator',
         name: 'calculator',
         component: CWACalculator
     },
@@ -53,5 +53,10 @@ export default [
         name: 'register',
         component: AppRegister
     },
+    {
+        path: '/logout',
+        name: 'logout',
+        redirect: '/'
+    }
    
 ];
