@@ -4,8 +4,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 offset-md-1 banner_content">
-                        <h1 class="text_light">CWAx</h1>
-                        <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni quidem ipsam sed harum doloribus consequatur deserunt ex praesentium repellat itaque.</p>
+                        <h1 class="text-warning">CWAx</h1>
+                        <p class="text-white">
+                            Save your per semester results, calculate your CWA and make score predictions for an increase, controlled decrease or a maintenance of your CWA all in one place
+                        </p>
                         <div class="btn_bar mb-3 mt-5">
                             <button 
                                 type="button" 
@@ -33,7 +35,9 @@
                     <div class="row">
                         <div class="col-md-10 offset-md-1">
                             <h2 class="text_primary">Why use CWAx ?</h2>
-                            <p class="my-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis quaerat saepe aspernatur laudantium molestias est voluptas iste suscipit dolores perferdis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum quod saepe quis, qui molestias ducimus incidunt eligendi exercitationem optio consequuntur.</p>
+                            <p class="my-3">
+                                CWAx is a Web Application making it accessible by students everywhere and on any device with an internet connection. Did you want to increase your CWA by a specific amount but did not know what effort was expected of you achieve your aim? CWAx is for you. In CWAx, you can calculate your Cumulative Weighted Average (CWA) or make score predictions for an increase, controlled decrease or maintenance of one's CWA, giving you some level of control over one's CWA
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -43,7 +47,9 @@
                     <div class="row">
                         <div class="col-md-10 offset-md-1">
                             <h2 class="text-center text_primary">Calculate CWA</h2>
-                            <p class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae laboriosam repellat temporibus! Impedit debitis nam in repudiandae! Accusantium adipisci, modi molestiae veniam illum aspernatur saepe?</p>
+                            <p class="my-3">
+                                Calculate your Cumulative Weighted Average using the CWAx CWA calculator
+                            </p>
                             <button 
                                 type="button"
                                 class="btn mx-auto mt-4 bg_primary text-white"
@@ -60,11 +66,13 @@
                     <div class="row">
                     <div class="col-md-10 offset-md-1">
                             <h2 class="text_primary">Estimate Score</h2>
-                            <p class="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae laboriosam repellat temporibus! Impedit debitis nam in repudiandae! Accusantium adipisci, modi molestiae veniam illum aspernatur saepe?</p>
+                            <p class="my-3">
+                                Not knowing how much effort to put into studies is sometimes stressful. Estimate some potential scores to attain in your examination in ordert to maintain, increase or decrease controllably your CWA.
+                            </p>
                             <button 
                                 type="button"
                                 class="btn mx-auto mt-4 bg_primary text-white"
-                                @click="routeTo({name: 'master-estimator'})"
+                                @click="routeTo({name: 'estimator'})"
                                 >
                                 Estimate Scores
                             </button>

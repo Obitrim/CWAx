@@ -1,18 +1,15 @@
 <template>
     <div class="m-3 cwa_calculator">
-        <div class="p-4 bg-white">
-            <h1>CWA Calculator</h1>
-            <div class="alert alert-info mt-4">
-                <ul>
-                    <li>
-                        Cumulated Data 
-                        <small>(Eg. cumalated credit hours and cumulated credit hours)</small>
-                        doesn't include current semester
-                    </li>
-                    <li>Check the fresher box if this is your first year first semester results</li>
-                </ul>
-            </div>
-        </div>
+        <view-info-box viewTitle="CWA Calculator">
+            <ul>
+                <li>
+                    Cumulated Data 
+                    <small>(Eg. cumalated credit hours and cumulated credit hours)</small>
+                    doesn't include current semester
+                </li>
+                <li>Check the fresher box if this is your first year first semester results</li>
+            </ul>   
+        </view-info-box>
 
         <form method="post" class="p-4 my-4 bg-white">
             <div class="form-group">
@@ -70,6 +67,7 @@
                             <th>Course</th>
                             <th>Credit Hours</th>
                             <th>Score</th>
+                            <th></th>
                         </tr>
                     </thead>
                 </template>
@@ -129,8 +127,8 @@
             </div>
             
             <div class="form-group text-right">
-                <button class="btn btn-outline-success mr-3" @click.prevent="addCourse">Add Course</button>
-                <button class="btn btn-success">Calculate</button>
+                <button class="btn btn-outline-primary mr-3" @click.prevent="addCourse">Add Course</button>
+                <button class="btn btn-primary" @click.prevent="calculateCWA">Calculate</button>
             </div>
         </form>
     </div>
@@ -138,9 +136,14 @@
 
 
 <script>
+import ViewInfoBox from '@/components/calculators/ViewInfoBox.vue';
+
 export default {
+    components: { ViewInfoBox },
+
     data(){
         return {
+
             course: {
                 name: '',
                 creditHour: 1,
@@ -151,38 +154,7 @@ export default {
                 isFresher: false,
                 cumulatedCreditHours: 0,
                 cumulatedWeightedScore: 0,
-                courses: [
-                    {
-                        name: 'CSM 154',
-                        creditHour: 3,
-                        score: 89
-                    },
-                    {
-                        name: 'ENGL 154',
-                        creditHour: 1,
-                        score: 99
-                    },
-                    {
-                        name: 'CSM 158',
-                        creditHour: 3,
-                        score: 80
-                    },
-                    {
-                        name: 'CSM 168',
-                        creditHour: 2,
-                        score: 89
-                    },
-                    {
-                        name: 'CSM 181',
-                        creditHour: 2,
-                        score: 76
-                    },
-                    {
-                        name: 'CSM 154',
-                        creditHour: 3,
-                        score: 89
-                    },
-                ]
+                courses: []
             },
         }
     },
@@ -196,7 +168,11 @@ export default {
     methods: {
         addCourse(){
             if(this.course.name && this.course.creditHour && this.course.score){
-                this.userDetails.courses.push({ ...this.course });
+                this.userDetails.courses.push({
+                    name: this.course.name,
+                    creditHour: this.course.creditHour,
+                    score: this.course.score
+                });
             }
             this.course.name = "";
             this.course.creditHour = 1;
@@ -206,6 +182,44 @@ export default {
         deleteCourse( index ){
             this.userDetails.courses.splice(index, 1);
         },
+
+        calculateCWA(){
+            let totalWeightedScores = this.calculateTotalWeightedScores(); 
+            let totalCreditHours = this.calculateTotalCreditHours();
+
+            console.log(totalWeightedScores, totalCreditHours);
+            
+            if(!!totalCreditHours && totalWeightedScores){
+                let newCWA = totalWeightedScores / totalCreditHours;
+                swal({
+                    title: 'CWA calculated',
+                    text:  `Total CWA = ${newCWA.toFixed(2)}`,
+                    icon: 'success'
+                }).then(value => {
+                    //save data if user is logged in
+                })
+            }
+        },
+
+        calculateTotalWeightedScores(){
+            let totalSemesterWeightedScores = this.userDetails.courses.reduce(function(accumulator, currentValue){ 
+                    return accumulator + (currentValue.creditHour * currentValue.score )
+                }, 
+                0
+            );
+
+            return totalSemesterWeightedScores + Number(this.userDetails.cumulatedWeightedScore);
+        },
+
+        calculateTotalCreditHours(){
+            let totalSemesterCreditHours = this.userDetails.courses.reduce(function(accumulator, currentValue){ 
+                    return accumulator + Number(currentValue.creditHour) 
+                }, 
+                0
+            );
+
+            return Number(this.userDetails.cumulatedCreditHours) + totalSemesterCreditHours;
+        }
     }
 };
 </script>

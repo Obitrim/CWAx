@@ -44,6 +44,11 @@ export default [
         component: CWACalculator
     },
     {
+        path: '/cwa-estimator',
+        name: 'estimator',
+        component: ScoreEstimateCalculator
+    },
+    {
         path: '/login',
         name: 'login',
         component: AppLogin

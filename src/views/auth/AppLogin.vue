@@ -2,7 +2,7 @@
     <div class="auth_view">
         <auth-layout btnText="Register">
             <template #header-content>
-                 <h1 class="pt-4">Login</h1>
+                 <h1 class="pt-4 text-warning">Login</h1>
                  <p class="mb-5">To secure your academic results from unauthorized access, provide your valid Username and Master Password</p>
             </template>
             <template>

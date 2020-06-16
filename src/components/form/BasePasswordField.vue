@@ -1,24 +1,23 @@
 <template>
-     <div>
+     <div class="base-password-field">
         <input 
             type="password" 
             name="password"
-            class="w-100 py-3 px-4"
+            class="w-100 py-2 px-3"
+            :id="id"
             :placeholder="placeholder"
             ref="passwordField"
             @input="onInput"
             autocomplete
             >
-        <a 
-            href="#" 
+        <a href="#" 
             class="icon"
             v-if="passwordVisible"
             @click.prevent="togglePasswordVisibility"
             >
             <i class="fa fa-eye-slash"></i>
         </a>
-        <a 
-            href="#"
+        <a  href="#"
             class="icon" 
             v-else
             @click.prevent="togglePasswordVisibility"
@@ -34,7 +33,9 @@ export default {
         placeholder: {
             type: String,
             default: 'Password'
-        }
+        },
+
+        id: String
     },
 
     data(){
@@ -47,12 +48,8 @@ export default {
     methods: {
         togglePasswordVisibility(){
             let passwordField = this.$refs.passwordField;
-            let inputType = passwordField.getAttribute("type");
-            let isTypePassword = inputType === "password";
-            passwordField.setAttribute(
-                "type" , 
-                isTypePassword ? 'text': 'password'
-            );
+            let isTypePassword = passwordField.getAttribute("type") === "password";
+            passwordField.setAttribute("type", isTypePassword ? 'text': 'password');
 
             this.passwordVisible = isTypePassword;
         },

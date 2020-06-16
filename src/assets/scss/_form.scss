@@ -1,6 +1,8 @@
 .auth_view {
     .form-group {
-        position: relative;
+        .base-password-field {
+            position: relative;
+        }
 
         input[type="email"],
         input[type="text"],
@@ -13,14 +15,11 @@
             color: $light;
 
             &:focus {
+                background-color: lighten($primary, 10%);
                 outline: none;
             }
         }
-
-        .remember_me {
-            font-size: $font-size - 3px;
-        }
-
+        
         .icon {
             position: absolute;
             right: 1.5rem;
