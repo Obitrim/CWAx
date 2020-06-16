@@ -4,7 +4,6 @@ export default {
 	createAccount(email, password){
 		return new Promise((resolve, reject) => {
 			auth.createUserWithEmailAndPassword(email, password).then(res => {
-				console.log('AuthService:' + res);
 				resolve(res.user);
 			}).catch(err => {
 				reject(err);
@@ -31,7 +30,7 @@ export default {
 		};
 
 		auth.sendSignInLinkToEmail(email, actionCodeSettings).then(() => {
-			console.log('succecsful');
-		}).catch(error => console.log(error))
+			console.log('successful');
+		}).catch(error => console.error(error))
 	}
 };

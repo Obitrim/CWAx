@@ -186,8 +186,6 @@ export default {
         calculateCWA(){
             let totalWeightedScores = this.calculateTotalWeightedScores(); 
             let totalCreditHours = this.calculateTotalCreditHours();
-
-            console.log(totalWeightedScores, totalCreditHours);
             
             if(!!totalCreditHours && totalWeightedScores){
                 let newCWA = totalWeightedScores / totalCreditHours;
@@ -195,7 +193,7 @@ export default {
                     title: 'CWA calculated',
                     text:  `Total CWA = ${newCWA.toFixed(2)}`,
                     icon: 'success'
-                }).then(value => {
+                }).then(() => {
                     //save data if user is logged in
                 })
             }

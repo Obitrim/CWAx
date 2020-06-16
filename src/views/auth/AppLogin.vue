@@ -46,7 +46,6 @@ export default {
 
     methods: {
         submit(){
-           console.log('AppLogin: Form submit');
            this.$router.push({ name: 'dashboard'});
         },
 

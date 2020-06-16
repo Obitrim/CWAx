@@ -190,7 +190,7 @@ export default {
 				this.categorizedCourses.push({
 					creditHour: this.registeredCourse.creditHour,
 					numberOfCourses: this.registeredCourse.numberOfCourses,
-					score: 45
+					targetScore: 45
 				});
 				this.registeredCourse.creditHour = 1;
 				this.registeredCourse.numberOfCourses = 0;
@@ -217,29 +217,39 @@ export default {
 					return;
 				}
 
-				if(this.categorizedCourses.length > 0){
-					let newCWa = this.userDetails.currentCWA + this.targetIncrease;
-					let totalCredits = this.userDetails.cumulatedCreditHours + this.totalSemesterCredits
-					let totalTargetScores = (newCWa * totalCredits) - this.userDetails.cumulatedWeightedScore;
-
-					//Predict scores in various categorized courses per credit hour
-					let totalSemesterScores = 0;
-
-					// while(totalSemesterScores < totalTargetScores){
-					// 	for(let i = 0; i < this.categorizedCourses.length; i++){
-					// 		let category = this.categorizedCourses[i];
-					// 		totalSemesterScores = category.creditHour * category.numberOfCourses * category.score;
-							
-					// 	}
-					// }
+				// if(this.categorizedCourses.length > 0){
+				// 	let newCWA = this.userDetails.currentCWA + this.targetIncrease;
+				// 	let totalCredits = this.userDetails.cumulatedCreditHours + this.totalSemesterCredits
+				// 	let totalTargetScores = (newCWA * totalCredits) - this.userDetails.cumulatedWeightedScore;
 					
-					//show Predicted marks to score
-					// for(let i = 0; i < this.categorizedCourses.length; i++){
-					// 	let category = this.categorizedCourses[i];
-					// 	console.table(category.creditHour, category.score);
-						
-					// }
-				}
+				// 	this.sortByCreditHour(this.categorizedCourses, false)
+
+				// 	Predict scores in various categorized courses per credit hour
+				// 	let totalSemesterScores = 0;
+				// 	let currentCourseIndex = 0;
+
+				// 	while(totalSemesterScores < totalTargetScores){
+				// 		this.categorizedCourses[currentCourseIndex].targetScore + 1;
+
+				// 		totalSemesterScores = this.categorizedCourses.reduce((accumulator, category) => {
+				// 			return accumulator + (category.creditHour * category.numberOfCourses * category.targetScore); 
+				// 		}, 0);
+
+
+
+				// 		currentCourseIndex = currentCourseIndex == this.categorizedCourses.length 
+				// 							? 0
+				// 							: currentCourseIndex + 1;
+				// 	}
+
+				// 	console.log(totalSemesterScores, totalTargetScores, this.categorizedCourses);
+				// }
+			});
+		},
+
+		sortByCreditHour(courses = [], ascending = true){
+			return courses.sort(({ creditHour }, { creditHour: next}) => {
+				return ascending ? creditHour - next : next - creditHour;
 			});
 		}
 	}
